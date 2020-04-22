@@ -1,17 +1,51 @@
 'use strict';
+let bcrypt = require('bcryptjs')
+
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
-    firstName: DataTypes.STRING,
+    firstName: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 255],
+          msg: 'nah ah ah you didnt put in a name'
+        }
+      }
+    },
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          msg: 'Please give a valid email address'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [4, 255],
+          msg: 'you need a password bruh'
+        }
+      }
+    },
     bio: DataTypes.TEXT,
     birthdate: DataTypes.DATE,
     displayName: DataTypes.STRING,
     admin: DataTypes.BOOLEAN,
     pic: DataTypes.STRING,
     zipcode: DataTypes.INTEGER
-  }, {});
+  }, {
+    hooks: {
+      beforeCreate: pendingUser => {
+        //Hash the password. the 12 is the Salt rounds, it defaults to 10
+        let hashedPassword = bcrypt.hashSync(pendingUser.password, 12)
+        //Reassign the hashed password(overwrite the plain text password)
+        pendingUser.password = hashedPassword
+      }
+    }
+  });
   user.associate = function(models) {
     // associations can be defined here
   };
