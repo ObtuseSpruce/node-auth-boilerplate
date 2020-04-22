@@ -22,6 +22,9 @@ app.use(layouts)
 // set up a static folder
 app.use(express.static('static'))
 
+//decrypt POST route data (from forms etc)
+app.use(express.urlencoded({ extended: false }))
+
 //********************************
 //           ROUTES
 //********************************
