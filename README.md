@@ -57,5 +57,14 @@ It exists so I have a customized boilerplate and don't have to start from scratc
 | GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
 | GET | `/profile/guest/:id` | View user dashboard (authorized user only) |
 
-
 ## Directions For Use
+
+###1. Clone the repository, but with a different name
+
+```sh
+git clone <repository_link> <new_name_here>
+```
+***For Example**
+```sh
+git clone git@github.com:obtuseSpruce/node-auth-boiler.git shiney-new-project
+```
