@@ -94,3 +94,38 @@ npm install
  ```sh
  createdb shiny_project_db
  ```
+### 5 Alter Sequelize Config File
+
+In `config/config.json`, update the database name to the one created in step 4. Other settings are likely okay but double check username, password, and dialect.
+
+### 6 Check user model for relevance to new project's needs
+
+for example, if the new project doesn't need a birthday field, then delete it from the user model and user migration files.
+
+### 7 Run the sequelize migrations
+```sh
+sequelize db:migrate
+```
+
+### 8 Create a file for the environment variables
+```sh
+touch .env
+```
+
+>alternatively just create via text editor
+
+Incude the following .env variables
+
+* SESSION_SECRET - this is a key for session to use
+
+### 9. Run the server and make sure it works
+
+**with nodemon**
+```sh
+nodemon
+```
+**without nodemon**
+```sh
+node index.js
+```
+>highly recommend installing nodemon as `node index.js` will not update changes
