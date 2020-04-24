@@ -129,3 +129,33 @@ nodemon
 node index.js
 ```
 >highly recommend installing nodemon as `node index.js` will not update changes
+
+### 10. Delete the origin that points to the boilerplate repo
+
+Currently if we run this command:
+
+```sh
+git remote -v
+```
+
+It will show `origin` as being hooked up to the boilerplate repository. We want a fresh repository instead, so let's delete the origin remote:
+
+```sh
+git remote remove origin
+```
+
+### 11. Create an empty git repository
+
+Via the Github website. Follow directions as they show up when you create a new repository:
+
+```sh
+git init
+git add .
+git commit -m 'initial commit'
+git remote add origin <new_repository_link>
+git push origin master
+```
+>we initialize git, add the repo and make a commit comment. They add the new origin and push the commit.
+
+## Happy Developing##
+
