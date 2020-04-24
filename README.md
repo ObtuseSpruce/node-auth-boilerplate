@@ -83,3 +83,14 @@ npm install
    * 3.1.2. logo Field in the Nav Bar
    * 3.1.3. Description and Repository fields in package.json
    * 3.1.4. Remove this boilerplate's README content
+   * 3.1.5. Switch Favicon to project-specific one (in `layout.ejs` head section)
+   
+### 4. Create a new database for the new project
+
+ ```sh
+ createdb <new_db_name>
+ ```
+ **For Example**
+ ```sh
+ createdb shiny_project_db
+ ```
