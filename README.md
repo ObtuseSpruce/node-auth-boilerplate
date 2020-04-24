@@ -19,7 +19,17 @@ It exists so I have a customized boilerplate and don't have to start from scratc
 **User Model**
 | column | Type | Notes
 | ----------- | ------------ | --------------------- |
-| id | Integer | Serial Primary Key |
+| firstName | String | Required Length > 1 |
+| lastName | String | - |
+| email | String | Unique Login |
+| password | String | Hash |
+| birthday | Date | - |
+| admin | Boolean | Defaulted to False |
+| pic | String | - |
+| bio | text | - |
+| createdAt | Date | Automatically added by Sequelize |
+| lastUpdated | Date | Automatically added by Sequelize |
+
 
 ## Included Routes
 
