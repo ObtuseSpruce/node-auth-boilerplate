@@ -14,3 +14,13 @@ It exists so I have a customized boilerplate and don't have to start from scratc
 * Sequelize User model
 * Materialize styling - nav and footer
 
+## Included Models
+
+**User Model**
+| column | Type | Notes
+| ----------- | ------------ | --------------------- |
+| id | Integer | Serial Primary Key |
+
+## Included Routes
+
+## Directions For Use
