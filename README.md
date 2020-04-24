@@ -157,5 +157,5 @@ git push origin master
 ```
 >we initialize git, add the repo and make a commit comment. They add the new origin and push the commit.
 
-## Happy Developing##
+## Happy Developing
 
