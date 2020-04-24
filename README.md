@@ -78,8 +78,8 @@ npm install
 ```
 ### 3. Customize the new project
 
-3.1. Remove default names:
-    3.1.1. Title in `layout.ejs`
+** 3.1. Remove default names: **
+   ** 3.1.1. Title in `layout.ejs` **
     3.1.2. logo Field in the Nav Bar
     3.1.3. Description and Repository fields in package.json
     3.1.4. Remove this boilerplate's README content
