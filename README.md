@@ -39,4 +39,23 @@ It exists so I have a customized boilerplate and don't have to start from scratc
 | GET | `/` | Home Page |
 | Get | `*` | Catch-all for 404s |
 
+**Routes in Controllers/auth.js**
+
+| Method | Path | Purpose |
+| --------- | -------------------------| -------------------------|
+| GET | `/auth/login` | Render login form |
+| POST | `auth/login` | Process login data |
+| GET | `/auth/signup` | Render signup form |
+| POST | `auth/singup` | Process signup data |
+| GET | `/auth/logout` | Remove user from session + redirect |
+
+**Routes in Controllers/auth.js**
+
+| Method | Path | Purpose |
+| --------- | -------------------------| -------------------------|
+| GET | `/profile/user` | Show user dashboard (authorized user only) |
+| GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
+| GET | `/profile/guest/:id` | View user dashboard (authorized user only) |
+
+
 ## Directions For Use
