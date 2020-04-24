@@ -2,6 +2,7 @@
 //    NODE MODULES
 //********************************
 //require needed modules
+require('dotenv').config()
 let express = require('express')
 //add layouts
 let flash = require('connect-flash')
@@ -10,6 +11,8 @@ let layouts = require('express-ejs-layouts')
 //create an app instance
 let app = express()
 
+//include Passport
+let passport = require('./config/passportConfig')
 
 //********************************
 //    SETTINGS / MIDDLEWARE
@@ -29,10 +32,14 @@ app.use(express.urlencoded({ extended: false }))
 
 //Setting up session for use in flash
 app.use(session({
-    secret: 'anything here maybe random',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
 }))
+
+//passport needs to come after Session.
+app.use(passport.initialize())
+app.use(passport.session())
 
 //set up connect-flash for the flash alert messages (depends on session, order matters here!!!)
 app.use(flash())
@@ -40,6 +47,7 @@ app.use(flash())
 //custom middleware for flash to exist on every page
 app.use((req, res, next) => {
     res.locals.alerts = req.flash()
+    res.locals.user = req.user
     next()
 })
 
@@ -48,6 +56,7 @@ app.use((req, res, next) => {
 //********************************
 //controllers
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
 
 //home page
 app.get('/', (req, res) => {
