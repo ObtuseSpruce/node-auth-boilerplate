@@ -1,1 +1,1 @@
-Auth Boilerplate
+Node Auth Boilerplate
